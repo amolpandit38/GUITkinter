@@ -1,17 +1,15 @@
 import tkinter as tk
+from PIL import ImageTk, Image
 
 root = tk.Tk()
+root.title("GUI Starter")
+root.iconbitmap('myImage.png')
 
-def ButtonClicked():
-    label = tk.Label(root, text=entry.get())
-    label.pack()
+quitButton = tk.Button(root, text="X", command=root.quit)
+quitButton.pack()
 
-entry = tk.Entry(root, width=50, bg="white", borderwidth=5)
-entry.pack()
-entry.insert(0, "Default Value")
-
-# this is how you write a label
-button = tk.Button(root, text= "A button", state="normal", command=ButtonClicked)
-button.pack()
+myImage = ImageTk.PhotoImage(Image.open("myImage.png"))
+label = tk.Label(root, image=myImage, width=300)
+label.pack()
 
 root.mainloop()
